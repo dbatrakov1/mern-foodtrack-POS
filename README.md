@@ -1,8 +1,8 @@
-# MERN-auth-with-password-recovery
+# Food track POS
 # Notes :
 1. Need account on https://app.sendgrid.com/ for password recovery.
-2. For react-router-dom v6 and higher code App.js nad PrivateRoute.js need some changes
-3. https://www.youtube.com/watch?v=YocRq-KesCM&list=LL&index=10
+
+
 # Configuration :
 Create a ```config.env``` file in the root directory and fill it with the following informations :
 
