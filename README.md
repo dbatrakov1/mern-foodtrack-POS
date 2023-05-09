@@ -1,4 +1,6 @@
 # Food track POS
+# About :
+It is a simple POS web app that allows the owner to collect orders and payments, keep track of orders, and close orders when they are done. Customers can easily place an order and pay with a credit card.
 # Notes :
 1. Need account on https://app.sendgrid.com/ for password recovery.
 
