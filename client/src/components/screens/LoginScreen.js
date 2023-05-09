@@ -8,9 +8,10 @@ const LoginScreen = ({ history }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  // if browser has a token in a local storage when LoginScreen(/login) loading then user will be redirect to ListScreen(/list)
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
-      history.push("/");
+      history.push("/list");
     }
   }, [history]);
 
@@ -24,15 +25,16 @@ const LoginScreen = ({ history }) => {
     };
 
     try {
-      const { data } = await axios.post(
+      //send request to the server with a payload {email: "...", password: "..."}
+      const { data } = await axios.post(//data is a response which contain {"success": true or false, "token": "..."}
         "/api/auth/login",
         { email, password },
         config
       );
 
-      localStorage.setItem("authToken", data.token);
+      localStorage.setItem("authToken", data.token);//save token to a local storage
 
-      history.push("/");
+      history.push("/list");//redirect ot ListScreen(/list)
     } catch (error) {
       setError(error.response.data.error);
       setTimeout(() => {
