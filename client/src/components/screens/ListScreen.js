@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./PrivateScreen.css";
+import CardListFolded from "../CardListFolded";
 
 const ListScreen = ({history}) => {
   const [error, setError] = useState("");
@@ -40,6 +41,9 @@ const ListScreen = ({history}) => {
   ) : (
     <>
         <h1>List</h1>
+        <CardListFolded />
+        <CardListFolded />
+        <CardListFolded />
       <div style={{background: "green", color: "white"}}>{privateData}</div>
       <button onClick={logoutHandler}>Logout</button>
     </>
