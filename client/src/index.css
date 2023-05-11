@@ -73,24 +73,104 @@ body {
 }
 
 /*CardListFolded*/
+
 .foldedCard {
-  width: 100%;
+  background-color: #eee;
   max-width: 600px;
-  min-height: 145px;
+  height: 145px;
   border-radius: 4px;
   border: 2px rgb(200,200,200) solid;
-  margin: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  transition: 1s;
+  margin:  20px 20px;
+  overflow: hidden;
+}
+.unfoldedCard{
+  background-color: #eee;
+  max-width: 600px;
+  border-radius: 4px;
+  border: 2px rgb(200,200,200) solid;
+  margin:  20px 20px;
+  min-height: 300px;
+  
 }
 .foldedCardImg{
   height: 145px;
+  border-radius: 4px;
 }
 .foldedCardText{
   margin: 16px 25px;
 }
-.unfoldedCard{
-  min-height: 300px;
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}
+.rowSpaceBetween{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.columnSpaceBetween{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.iconButton{
+  border: 2px rgb(200,200,200) solid;
+  border-radius: 4px;
+  width: 70px;
+  height: 70px;
+  align-self: flex-end;
+  margin: 10px;
+}
+.iconButton:active{  
+  background-color:gray;
+}
+.closeConfScreen{
+  width: 300px;
+  height: 200px;
+  border-radius: 4px;
+  border: 2px rgb(200,200,200) solid;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #eee;
+}
+.closeConfScreenText{
+  margin: auto;
+}
+
+/* CardFilling */
+.fillingCard {
+  background-color: hsl(0, 0%, 93%);
+  max-width: 600px;
+  height: 145px;
+  border-radius: 4px;
+  border: 2px rgb(200,200,200) solid;
+  margin:  20px 20px;
+  overflow: hidden;
+}
+.fillingImg{
+  height: 145px;
+  border-radius: 4px;
+}
+.fillingText{
+  margin: 16px 25px;
+}
+.rowSpaceBetween{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.columnSpaceBetween{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ifCardPicked{
+  border: solid 2px rgb(153, 153, 153);
+  background-color: hsl(0, 0%, 89%);
 }

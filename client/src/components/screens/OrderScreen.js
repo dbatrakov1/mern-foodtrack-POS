@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 import "./LoginScreen.css";
+import CardFilling from "../CardFilling";
 
 const OrderScreen = ({ history }) => {
   
@@ -16,7 +17,10 @@ const OrderScreen = ({ history }) => {
 
   return (
     <>
-        <h1>OrderScreen</h1>
+        <h1>French Crepes</h1>
+        <h3>Add three topings:</h3>
+        <CardFilling />
+        <CardFilling />
     </>
   );
 };
