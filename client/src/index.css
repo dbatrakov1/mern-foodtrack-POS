@@ -154,7 +154,8 @@ body {
   overflow: hidden;
 }
 .fillingImg{
-  height: 145px;
+  width: 130px;
+  object-fit: cover;
   border-radius: 4px;
 }
 .fillingText{
