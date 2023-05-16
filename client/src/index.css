@@ -146,6 +146,7 @@ body {
 /* CardFilling */
 .fillingCard {
   background-color: hsl(0, 0%, 93%);
+  min-width: 360px;
   max-width: 600px;
   height: 145px;
   border-radius: 4px;
@@ -174,4 +175,19 @@ body {
 .ifCardPicked{
   border: solid 2px rgb(153, 153, 153);
   background-color: hsl(0, 0%, 89%);
+}
+
+/* OrderScreen */
+.orderScreenMain{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.orderScreenFixed{
+  
+  position: fixed;
+  bottom: 0;
+  margin: 0 auto;
+
+  border: 3px solid #73AD21;
 }
