@@ -1,12 +1,12 @@
 
 import CardFilling from "../CardFilling";
 import { useState , useEffect} from "react";
-
+import { BsBag } from "react-icons/bs";
 
 const OrderScreen = () => {
   const [fillings, setFillings] = useState([])
-  // const [storedFillings, setStoredFillings] = useState(localStorage.getItem("fillings"))
   const [storedFillings, setStoredFillings] = useState(JSON.parse(localStorage.getItem("fillings")))
+  const [bag, setBag] = useState(JSON.parse(localStorage.getItem("bag")))
 
 useEffect(() =>{
     const fetchFillings = async () => {
@@ -17,23 +17,38 @@ useEffect(() =>{
 },[]) 
 
 
-
+//Print filling cards
 const printFillings = fillings.map((item, index) => {
     return(
         <CardFilling key={index} filling={item} storedFillings={storedFillings} setStoredFillings={setStoredFillings}/>
     )
 })
 
-  
+//Bag
+useEffect(() =>{
+  if(bag == null){
+    
+  }
+},[bag]) 
+const addToBag = () => {
+  console.log('Crepe added!!!')
+
+}
 
   return (
     <>
+      <BsBag className="orderScreenBag" size={30}/>
+      <div className="orderScreenBagText">8</div>
       <div className="orderScreenMain">
-        <h1>French Crepes</h1>
-        <h3>Choose up to three fillings:</h3>
+        <div className="">
+          <h1>French Crepes</h1>
+          <h3>Choose up to three fillings:</h3>
+        </div>
+        
         {printFillings}
+        
       </div>
-      <div className="orderScreenFixed">
+      <div className="orderScreenFixedBottom" onClick={addToBag}>
         <h2>Add to bag</h2>
       </div>
         
