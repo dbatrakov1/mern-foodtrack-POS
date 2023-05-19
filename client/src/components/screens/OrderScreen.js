@@ -6,7 +6,7 @@ import { BsBag } from "react-icons/bs";
 const OrderScreen = () => {
   const [fillings, setFillings] = useState([])
   const [storedFillings, setStoredFillings] = useState(JSON.parse(localStorage.getItem("fillings")))
-  const [bag, setBag] = useState(JSON.parse(localStorage.getItem("bag")))
+  const [bag, setBag] = useState(JSON.parse(localStorage.getItem("bag"))?JSON.parse(localStorage.getItem("bag")):{})
 
 useEffect(() =>{
     const fetchFillings = async () => {
@@ -26,13 +26,28 @@ const printFillings = fillings.map((item, index) => {
 
 //Bag
 useEffect(() =>{
-  if(bag == null){
-    
-  }
+  //if bag has something show how many items it has on bag icon
 },[bag]) 
-const addToBag = () => {
-  console.log('Crepe added!!!')
 
+const addToBag = () => {
+  function Bag(crepesFillings){
+    this.crepes = [crepesFillings]
+  }
+  console.log('Crepe added!!!')
+  // console.log(bag)
+  
+  // bag == !null?(bag.hasOwnProperty('crepes')?console.log('exist'):console.log('not exist')):console.log('object is not exist')
+
+  if(!(bag.hasOwnProperty('crepes'))){
+    let newBag = new Bag(storedFillings)
+    
+    
+    setBag(1)
+    console.log(bag)
+    localStorage.setItem("bag", JSON.stringify(newBag))
+  }else{
+    console.log(bag)
+  }
 }
 
   return (
