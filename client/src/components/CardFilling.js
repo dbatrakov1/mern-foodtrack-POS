@@ -11,6 +11,7 @@ function CardFilling(props) {
     function checkIfCardPicked(){
       //if no fillings in localStorage => do nothing
       if(props.storedFillings == null){
+        setPick(false)
       }
       //else if the card's title is found in localStorage => highlight it
       else if(props.storedFillings.includes(props.filling.title)){
