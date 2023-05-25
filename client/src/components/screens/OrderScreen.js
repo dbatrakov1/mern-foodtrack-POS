@@ -14,6 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
 import FilingCards from "../FillingCards"
 import BadgeCart from "../BadgeCart"
 
@@ -31,7 +32,7 @@ function DrawerAppBar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+        LA CREPE
       </Typography>
       <Divider />
       <List>
@@ -51,10 +52,10 @@ function DrawerAppBar(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center"}}>
       <CssBaseline />
-      <AppBar component="nav">
-        <Toolbar>
+      <AppBar component="nav" >
+        <Toolbar sx={{ display: 'flex', justifyContent: "space-between", alignItems: "center"}}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -69,7 +70,7 @@ function DrawerAppBar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            LA CREPE
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
           
@@ -78,11 +79,15 @@ function DrawerAppBar(props) {
                 {item}
               </Button>
             ))}
-            <BadgeCart />
+            
           </Box>
+          <BadgeCart  alignSelf="flex-end"/>
         </Toolbar>
+        
       </AppBar>
+      
       <Box component="nav">
+      
         <Drawer
           container={container}
           variant="temporary"
@@ -96,13 +101,20 @@ function DrawerAppBar(props) {
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
           }}
         >
+          
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ p: 3 }}>
+      <Box component="main" sx={{ p: 3}}>
         <Toolbar />
+        {/* <Box display="flex" >
+          <FilingCards justifyContent="center" />
+          
+        </Box> */}
         <Typography>
-          <FilingCards/>
+          
+              <FilingCards  />
+          
         </Typography>
       </Box>
     </Box>
