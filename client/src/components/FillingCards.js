@@ -1,7 +1,7 @@
 
 import CardFilling from "./CardFilling";
 import { useState , useEffect} from "react";
-import { BsBag } from "react-icons/bs";
+
 
 
 const OrderScreen = () => {
@@ -17,10 +17,13 @@ useEffect(() =>{
           setFillings(data);
       };
     fetchFillings();
-    let getBagFromLocalSt = JSON.parse(localStorage.getItem("bag"))
+   
+    const getBagFromLocalSt = JSON.parse(localStorage.getItem("bag"))
     setBag(getBagFromLocalSt)
-    console.log(bag)
+
+    
 },[]) 
+
 
 
 //Print filling cards
@@ -53,7 +56,7 @@ const addToBag = () => {
   }
   else if((bag.hasOwnProperty('crepes'))){
     console.log('Condition 2 crepes property exist')
-    if(bag.crepes.length == 0){
+    if(bag.crepes.length === 0){
       console.log(`Condition 2-1 crepes quatity${bag.crepes.length}`)
     }
     else if(bag.crepes.length > 0){
@@ -80,7 +83,7 @@ const addToBag = () => {
 }
 
   return (
-    <>
+    <div>
       
       {/* <BsBag className="orderScreenBag" size={30}/> */}
       {/* <div className="orderScreenBagText">8</div> */}
@@ -92,7 +95,7 @@ const addToBag = () => {
         <h2>Add to cart</h2>
       </div>
         
-    </>
+    </div>
   );
 };
 

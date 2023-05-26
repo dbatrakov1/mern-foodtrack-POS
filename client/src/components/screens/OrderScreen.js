@@ -14,8 +14,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import FilingCards from "../FillingCards"
+
+import FillingCards from "../FillingCards"
 import BadgeCart from "../BadgeCart"
 
 const drawerWidth = 240;
@@ -107,15 +107,12 @@ function DrawerAppBar(props) {
       </Box>
       <Box component="main" sx={{ p: 3}}>
         <Toolbar />
-        {/* <Box display="flex" >
-          <FilingCards justifyContent="center" />
+        
+        <Box>
           
-        </Box> */}
-        <Typography>
+              <FillingCards  />
           
-              <FilingCards  />
-          
-        </Typography>
+        </Box>
       </Box>
     </Box>
   );
