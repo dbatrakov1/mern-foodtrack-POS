@@ -45,7 +45,8 @@ useEffect(() =>{
 
 const addToBag = () => {
   console.log('Crepe added!!!')
-  if(bag == null){
+  console.log(bag)
+  if(!bag.hasOwnProperty('crepes')){
     console.log('Condition 1 bag == null')
 
     let newBag = new Bag(storedFillings)
@@ -54,7 +55,7 @@ const addToBag = () => {
     
     localStorage.removeItem("fillings");
   }
-  else if((bag.hasOwnProperty('crepes'))){
+ else{
     console.log('Condition 2 crepes property exist')
     if(bag.crepes.length === 0){
       console.log(`Condition 2-1 crepes quatity${bag.crepes.length}`)
