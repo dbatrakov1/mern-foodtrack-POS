@@ -40,13 +40,14 @@ function Bag(crepesFillings){
 useEffect(() =>{
   //if bag has something show how many items it has on bag icon
   // let newBag = new Bag(storedFillings)
-  localStorage.setItem("bag", JSON.stringify(bag))
+  // localStorage.setItem("bag", JSON.stringify(bag))
+  console.log('update bag')
 },[bag]) 
 
 const addToBag = () => {
   console.log('Crepe added!!!')
-  console.log(bag)
-  if(!bag.hasOwnProperty('crepes')){
+ 
+  if(!bag || !bag.hasOwnProperty('crepes')){
     console.log('Condition 1 bag == null')
 
     let newBag = new Bag(storedFillings)
@@ -64,13 +65,17 @@ const addToBag = () => {
       console.log(`Condition 2-2 crepes quatity${bag.crepes.length}`)
       
 
-      setCrepesInBag(current => [...current, storedFillings])
-      console.log(crepesInBag)
-      let newBag = new Bag(crepesInBag)
-      setBag(newBag)
-      console.log(bag)
-      setStoredFillings()
+      setCrepesInBag(current => [...current, storedFillings])//1
+     
+      let newBag = new Bag(crepesInBag)//2
+      setBag(newBag)//3
       
+      
+      console.log(`crepsInBag = ${crepesInBag}`)
+      console.log(`storedFillings = ${storedFillings}`)
+      console.log(`newbag = ${newBag.crepes}`)
+      setStoredFillings()
+      localStorage.setItem("bag", JSON.stringify(bag))
       localStorage.removeItem("fillings");
     }
     // let newBag = new Bag(storedFillings)
