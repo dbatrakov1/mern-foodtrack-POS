@@ -24,6 +24,8 @@ const navItems = ['Home', 'About', 'Contact'];
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [storedFillings, setStoredFillings] = React.useState(JSON.parse(localStorage.getItem("fillings")))
+  const [crepesInCart, setCrepesInCart] = React.useState([])
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -81,7 +83,11 @@ function DrawerAppBar(props) {
             ))}
             
           </Box>
-          <BadgeCart  alignSelf="flex-end"/>
+          <BadgeCart  
+              crepesInCart={crepesInCart}
+              setCrepesInCart={setCrepesInCart} 
+              alignSelf="flex-end"
+          />
         </Toolbar>
         
       </AppBar>
@@ -110,7 +116,12 @@ function DrawerAppBar(props) {
         
         <Box>
           
-              <FillingCards  />
+              <FillingCards 
+                  storedFillings={storedFillings} 
+                  setStoredFillings={setStoredFillings} 
+                  crepesInCart={crepesInCart}
+                  setCrepesInCart={setCrepesInCart}
+              />
           
         </Box>
       </Box>

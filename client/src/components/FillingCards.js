@@ -2,10 +2,10 @@
 import CardFilling from "./CardFilling";
 import { useState , useEffect} from "react";
 
-const OrderScreen = () => {
+const OrderScreen = (props) => {
   const [fillings, setFillings] = useState([])
-  const [storedFillings, setStoredFillings] = useState(JSON.parse(localStorage.getItem("fillings")))
-  const [crepesInCart, setCrepesInCart] = useState([])
+  // const [storedFillings, setStoredFillings] = useState(JSON.parse(localStorage.getItem("fillings")))
+  // const [crepesInCart, setCrepesInCart] = useState([])
 
 useEffect(() =>{
     const fetchFillings = async () => {
@@ -14,30 +14,31 @@ useEffect(() =>{
       };
     fetchFillings();
       if(JSON.parse(localStorage.getItem("crepesInCart"))){
-        setCrepesInCart(JSON.parse(localStorage.getItem("crepesInCart")))
+        props.setCrepesInCart(JSON.parse(localStorage.getItem("crepesInCart")))
       }
 },[]) 
 useEffect(() =>{//related to addToCart button
-    localStorage.setItem("crepesInCart", JSON.stringify(crepesInCart))
-    setStoredFillings()
+    localStorage.setItem("crepesInCart", JSON.stringify(props.crepesInCart))
+    props.setStoredFillings()
     localStorage.removeItem("fillings");
-},[crepesInCart]) 
+},[props.crepesInCart]) 
 
 
 //Print filling cards
 const printFillings = fillings.map((item, index) => {
     return(
-        <CardFilling key={index} filling={item} storedFillings={storedFillings} setStoredFillings={setStoredFillings}/>
+        <CardFilling key={index} filling={item} storedFillings={props.storedFillings} setStoredFillings={props.setStoredFillings}/>
     )
 })
 
 const addToCart = () => {
-    if(storedFillings){
-        let newArr = [...crepesInCart]
-        newArr.push(storedFillings)
-        setCrepesInCart(newArr)
+    if(props.storedFillings){
+        // let newArr = [...crepesInCart]
+        // newArr.push(storedFillings)
+        // setCrepesInCart(newArr)
+        props.setCrepesInCart(current => [...current, props.storedFillings])
     }else{
-        console.log('error addToBag')
+        console.log('error addToCart')
     }
 }
  
